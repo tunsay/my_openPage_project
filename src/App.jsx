@@ -7,16 +7,19 @@ import "./styles.css";
 function App() {
     const [step, setStep] = useState(1);
     const [animationClass, setAnimationClass] = useState("slide-in");
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [isProcessing, setIsProcessing] = useState(false);
-    const [debugMode, setDebugMode] = useState(true); // MODE DEBUG - Changez en false pour la version finale
+    const [isAnimating, setIsAnimating] = useState(false);    const [isProcessing, setIsProcessing] = useState(false);
+    // Mode debug activé uniquement en développement
+    const [debugMode, setDebugMode] = useState(import.meta.env.DEV);
 
     // Obtenir la configuration de l'étape actuelle
     const currentStepData = stepConfig.find(s => s.id === step);
     const maxSteps = stepConfig.length;
 
-    // Raccourci clavier pour activer/désactiver le debug (Ctrl+D)
+    // Raccourci clavier pour activer/désactiver le debug (Ctrl+D) - uniquement en développement
     useEffect(() => {
+        // Ne permettre le toggle du debug qu'en mode développement
+        if (!import.meta.env.DEV) return;
+
         const handleKeyDown = (e) => {
             if (e.ctrlKey && e.key === 'd') {
                 e.preventDefault();
@@ -70,10 +73,8 @@ function App() {
                         />
                     </div>
                 )}
-            </div>
-
-            {/* Indicateur de mode debug */}
-            {debugMode && (
+            </div>            {/* Indicateur de mode debug - uniquement en développement */}
+            {debugMode && import.meta.env.DEV && (
                 <div className="debug-indicator">
                     🔧 MODE DEBUG - Appuyez sur Ctrl+D pour désactiver
                 </div>
