@@ -111,6 +111,13 @@ body, html, #root {
   border-color: white;
 }
 
+.navigation button:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #666666;
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+}
+
 .navigation-buttons {
   padding: 20px;
   display: flex;

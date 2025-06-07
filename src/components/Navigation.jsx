@@ -1,6 +1,6 @@
 import { stepConfig } from '../stepConfig';
 
-function Navigation({ step, setStep, maxSteps }) {
+function Navigation({ step, setStep, isAnimating, isProcessing }) {
     // Utiliser directement la configuration des étapes
     const steps = stepConfig.map(config => config.id);
 
@@ -11,6 +11,7 @@ function Navigation({ step, setStep, maxSteps }) {
                     key={stepNum}
                     onClick={() => setStep(stepNum)}
                     className={step === stepNum ? "active" : ""}
+                    disabled={isAnimating || isProcessing}
                 >
                     Étape {stepNum}
                 </button>

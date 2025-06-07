@@ -8,6 +8,7 @@ function App() {
     const [step, setStep] = useState(1);
     const [animationClass, setAnimationClass] = useState("slide-in");
     const [isAnimating, setIsAnimating] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
     const [debugMode, setDebugMode] = useState(true); // MODE DEBUG - Changez en false pour la version finale
 
     // Obtenir la configuration de l'étape actuelle
@@ -30,7 +31,7 @@ function App() {
 
     // Gérer la transition entre les étapes
     const handleNext = () => {
-        if (step < maxSteps && !isAnimating) {
+        if (step < maxSteps && !isAnimating && !isProcessing) {
             setIsAnimating(true);
             setAnimationClass("slide-out");
             
@@ -55,7 +56,7 @@ function App() {
     return (
         <div className="app-container">
             {/* Navigation pour le mode debug */}
-            {debugMode && <Navigation step={step} setStep={setStep} maxSteps={maxSteps} />}
+            {debugMode && <Navigation step={step} setStep={setStep} isAnimating={isAnimating} isProcessing={isProcessing} />}
             
             <div className="content-container">
                 {currentStepData && (
@@ -64,6 +65,8 @@ function App() {
                             stepData={currentStepData}
                             onNext={handleNext}
                             isAnimating={isAnimating}
+                            isProcessing={isProcessing}
+                            setIsProcessing={setIsProcessing}
                         />
                     </div>
                 )}
