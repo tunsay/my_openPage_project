@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://https://tunsay.github.io/my_openPage_project/",
+  "homepage": "https://tunsay.github.io/my_openPage_project/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
