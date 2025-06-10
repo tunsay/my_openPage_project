@@ -1,14 +1,13 @@
 import Step2 from './Step2';
 import Step3 from './Step3';
 
-function StepRenderer({ stepData, onNext, isAnimating, isProcessing, setIsProcessing }) {
-    // Pour les questions, utiliser les composants Step individuels
+function StepRenderer({ stepData, onNext, isAnimating, isProcessing, setIsProcessing }) {    // Pour les questions, utiliser les composants Step individuels
     if (stepData.type === 'question') {
         if (stepData.id === 2) {
-            return <Step2 onNext={onNext} isAnimating={isAnimating} />;
+            return <Step2 onNext={onNext} isAnimating={isAnimating} isProcessing={isProcessing} setIsProcessing={setIsProcessing} />;
         }
         if (stepData.id === 3) {
-            return <Step3 onNext={onNext} isAnimating={isAnimating} />;
+            return <Step3 onNext={onNext} isAnimating={isAnimating} isProcessing={isProcessing} setIsProcessing={setIsProcessing} />;
         }
     }
 
