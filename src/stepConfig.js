@@ -8,18 +8,13 @@ import {
 // Configuration centralisée des étapes - désormais très facile à modifier !
 export const stepConfig = [
     createWelcomeStep(1, "Bienvenue dans notre application. Ceci est un message de présentation."),
-    
-    createNumberQuestionStep(
+      createNumberQuestionStep(
         2,
         "Veuillez indiquer votre âge pour continuer.",
         "Âge :",
         "Entrez votre âge",
         18,
-        120,
-        {
-            min: "Vous devez avoir au moins 18 ans pour continuer.",
-            max: "Veuillez entrer un âge valide."
-        }
+        120
     ),
     
     createTextQuestionStep(
@@ -28,7 +23,8 @@ export const stepConfig = [
         "Code d'accès :",
         "Entrez le code",
         "REACT2023",
-        "Code valide ! Vous pouvez continuer."    ),
+        "Code valide ! Vous pouvez continuer."
+    ),
     
     createSimpleTextStep(4, "Félicitations ! Vous avez complété toutes les étapes avec succès.")
 ];

@@ -30,9 +30,8 @@ export const createSimpleTextStep = (id, text) => ({
  * @param {string} placeholder - Placeholder pour l'input
  * @param {number} min - Valeur minimum
  * @param {number} max - Valeur maximum
- * @param {object} errorMessages - Messages d'erreur personnalisés
  */
-export const createNumberQuestionStep = (id, text, question, placeholder, min, max, errorMessages = {}) => ({
+export const createNumberQuestionStep = (id, text, question, placeholder, min, max) => ({
     id,
     type: "question",
     content: {
@@ -43,14 +42,7 @@ export const createNumberQuestionStep = (id, text, question, placeholder, min, m
         validation: {
             required: true,
             min,
-            max,
-            errorMessages: {
-                required: "Veuillez entrer une valeur.",
-                invalid: "Veuillez entrer un nombre valide.",
-                min: `La valeur doit être au moins ${min}.`,
-                max: `La valeur ne peut pas dépasser ${max}.`,
-                ...errorMessages
-            }
+            max
         }
     }
 });
@@ -63,9 +55,8 @@ export const createNumberQuestionStep = (id, text, question, placeholder, min, m
  * @param {string} placeholder - Placeholder pour l'input
  * @param {string} expectedValue - Valeur attendue
  * @param {string} successMessage - Message de succès
- * @param {object} errorMessages - Messages d'erreur personnalisés
  */
-export const createTextQuestionStep = (id, text, question, placeholder, expectedValue, successMessage, errorMessages = {}) => ({
+export const createTextQuestionStep = (id, text, question, placeholder, expectedValue, successMessage) => ({
     id,
     type: "question",
     content: {
@@ -76,11 +67,6 @@ export const createTextQuestionStep = (id, text, question, placeholder, expected
         validation: {
             required: true,
             expectedValue,
-            errorMessages: {
-                required: "Veuillez entrer une réponse.",
-                invalid: "Réponse incorrecte. Veuillez réessayer.",
-                ...errorMessages
-            },
             successMessage
         }
     }
