@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import VideoPlayer from './VideoPlayer';
 
 function StepRenderer({ stepData, onNext, isAnimating, isProcessing, setIsProcessing }) {
     const [inputValue, setInputValue] = useState('');
@@ -119,16 +118,8 @@ function StepRenderer({ stepData, onNext, isAnimating, isProcessing, setIsProces
                                 <button type="submit" disabled={isAnimating || isProcessing}>
                                     {isProcessing ? 'Vérification...' : 'Vérifier'}
                                 </button>
-                            </div>
-                        </form>
+                            </div>                        </form>
                     </div>
-                );            case 'video':
-                return (
-                    <VideoPlayer 
-                        stepData={stepData}
-                        onNext={handleNextClick}
-                        isAnimating={isAnimating}
-                    />
                 );
 
             default:

@@ -23,31 +23,6 @@ export const createSimpleTextStep = (id, text) => ({
 });
 
 /**
- * Crée une étape vidéo
- * @param {number} id - Numéro de l'étape
- * @param {string} text - Texte descriptif
- * @param {string} videoSrc - Chemin vers la vidéo (ex: "/video.mp4")
- * @param {boolean} autoplay - Lecture automatique (défaut: false)
- * @param {boolean} controls - Afficher les contrôles (défaut: true)
- * @param {boolean} autoFullscreen - Passer automatiquement en plein écran (défaut: false)
- * @param {string} endMessage - Message à afficher à la fin (défaut: "J'espère que ça t'a plu !")
- * @param {boolean} showSkip - Afficher un bouton "Passer" (défaut: false)
- */
-export const createVideoStep = (id, text, videoSrc, autoplay = false, controls = true, autoFullscreen = false, endMessage = "J'espère que ça t'a plu !", showSkip = false) => ({
-    id,
-    type: "video",
-    content: {
-        text,
-        videoSrc,
-        autoplay,
-        controls,
-        autoFullscreen,
-        endMessage,
-        showSkip
-    }
-});
-
-/**
  * Crée une étape avec question et validation numérique
  * @param {number} id - Numéro de l'étape
  * @param {string} text - Texte de présentation
@@ -108,27 +83,6 @@ export const createTextQuestionStep = (id, text, question, placeholder, expected
             },
             successMessage
         }
-    }
-});
-
-/**
- * Crée une étape vidéo surprise (plein écran automatique, sans contrôles)
- * @param {number} id - Numéro de l'étape
- * @param {string} text - Texte descriptif (affiché avant le plein écran)
- * @param {string} videoSrc - Chemin vers la vidéo
- * @param {string} endMessage - Message surprise à la fin
- */
-export const createSurpriseVideoStep = (id, text, videoSrc, endMessage = "🎉 Surprise ! J'espère que ça t'a plu ! 🎉") => ({
-    id,
-    type: "video",
-    content: {
-        text,
-        videoSrc,
-        autoplay: true,
-        controls: false,
-        autoFullscreen: true,
-        endMessage,
-        showSkip: false
     }
 });
 

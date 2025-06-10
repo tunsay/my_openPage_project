@@ -2,8 +2,7 @@ import {
     createWelcomeStep,
     createNumberQuestionStep,
     createTextQuestionStep,
-    createSimpleTextStep,
-    createSurpriseVideoStep
+    createSimpleTextStep
 } from './stepUtils';
 
 // Configuration centralisée des étapes - désormais très facile à modifier !
@@ -29,14 +28,7 @@ export const stepConfig = [
         "Code d'accès :",
         "Entrez le code",
         "REACT2023",
-        "Code valide ! Vous pouvez continuer."
-    ),
-      createSurpriseVideoStep(
-        4,
-        "Prépare-toi pour une surprise...",
-        "/re8.mp4",
-        "🎉 Surprise mon pote ! J'espère que cette vidéo t'a plu ! 🎉"
-    ),
+        "Code valide ! Vous pouvez continuer."    ),
     
-    createSimpleTextStep(5, "Félicitations ! Vous avez complété toutes les étapes avec succès.")
+    createSimpleTextStep(4, "Félicitations ! Vous avez complété toutes les étapes avec succès.")
 ];
